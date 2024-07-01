@@ -20,9 +20,10 @@ build_knn() {
             KNN_BRANCH=$(echo "$OS_VERSION" | rev | cut -c3- | rev)
             git clone https://github.com/opensearch-project/k-NN.git  --branch 2.x --recursive
         fi
-    else
-        KNN_BRANCH=$(echo "$OS_VERSION" | rev | cut -c3- | rev)
-        git clone https://github.com/opensearch-project/k-NN.git --branch $KNN_BRANCH --recursive
+    fi
+    if [ "$OS_VERSION" == "2.15.0" ]
+    then
+	git clone https://github.com/MrFlap/k-NN.git --branch iterative_graph_cons --recursive
     fi
     # go inside k-NN
     cd ./k-NN
