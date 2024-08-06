@@ -20,9 +20,16 @@ build_knn() {
             KNN_BRANCH=$(echo "$OS_VERSION" | rev | cut -c3- | rev)
             git clone https://github.com/opensearch-project/k-NN.git  --branch 2.x --recursive
         fi
-    else
-        KNN_BRANCH=$(echo "$OS_VERSION" | rev | cut -c3- | rev)
-        git clone https://github.com/opensearch-project/k-NN.git --branch $KNN_BRANCH --recursive
+    fi
+    if [ "$OS_VERSION" == "3.0.0" ]
+    then
+	if [ "$MEMORY_FIX" == "true" ]
+	then
+	    git clone https://github.com/MrFlap/k-NN.git --branch alloc_iter_graph_cons --recursive
+	else
+            git clone https://github.com/opensearch-project/k-NN.git  --recursive
+	fi
+
     fi
     # go inside k-NN
     cd ./k-NN
@@ -32,10 +39,10 @@ build_knn() {
     gcc --version | head -n 1 | cut -d ' ' -f3
     echo "Running the scl_setup"
     # This is needed if you are using ci-image
-    bash /usr/local/bin/scl_setup
+    #bash /usr/local/bin/scl_setup
 
     chmod 755 ./scripts/build.sh
-    ./scripts/build.sh -v "$OS_VERSION" -s "$IS_SNAPSHOT"
+    ./scripts/build.sh -v "$OS_VERSION" -s "$IS_SNAPSHOT" -a "arm64"
     if [ "$IS_SNAPSHOT" == "true" ]
     then
         mv /home/ci-runner/k-NN/artifacts/plugins/opensearch-knn-${OS_VERSION}.0-SNAPSHOT.zip /home/ci-runner/k-NN/artifacts/plugins/opensearch-knn.zip
@@ -48,14 +55,14 @@ build_knn() {
 create_opensearch_min_dis() {
     if [ "$IS_SNAPSHOT" == "true" ]
     then
-        wget https://artifacts.opensearch.org/snapshots/core/opensearch/${OS_VERSION}-SNAPSHOT/opensearch-min-${OS_VERSION}-SNAPSHOT-linux-x64-latest.tar.gz
-        tar -xvf opensearch-min-${OS_VERSION}-SNAPSHOT-linux-x64-latest.tar.gz
-        rm -rf opensearch-min-${OS_VERSION}-SNAPSHOT-linux-x64-latest.tar.gz
+        wget https://artifacts.opensearch.org/snapshots/core/opensearch/${OS_VERSION}-SNAPSHOT/opensearch-min-${OS_VERSION}-SNAPSHOT-linux-arm64-latest.tar.gz
+        tar -xvf opensearch-min-${OS_VERSION}-SNAPSHOT-linux-arm64-latest.tar.gz
+        rm -rf opensearch-min-${OS_VERSION}-SNAPSHOT-linux-arm64-latest.tar.gz
         mv opensearch-${OS_VERSION}-SNAPSHOT opensearch
     else
-        wget https://artifacts.opensearch.org/releases/core/opensearch/${OS_VERSION}/opensearch-min-${OS_VERSION}-linux-x64.tar.gz
-        tar -xvf opensearch-min-${OS_VERSION}-linux-x64.tar.gz
-        rm -rf opensearch-min-${OS_VERSION}-linux-x64.tar.gz
+        wget https://artifacts.opensearch.org/releases/core/opensearch/${OS_VERSION}/opensearch-min-${OS_VERSION}-linux-arm64.tar.gz
+        tar -xvf opensearch-min-${OS_VERSION}-linux-arm64.tar.gz
+        rm -rf opensearch-min-${OS_VERSION}-linux-arm64.tar.gz
         mv opensearch-${OS_VERSION} opensearch
     fi
     

@@ -1,0 +1,6 @@
+[submodule "mem_usage_pid"]
+	path = mem_usage_pid
+	url = https://github.com/MrFlap/mem_usage_pid.git
+[submodule "opensearch-benchmark-workloads"]
+	path = opensearch-benchmark-workloads
+	url = https://github.com/opensearch-project/opensearch-benchmark-workloads.git
