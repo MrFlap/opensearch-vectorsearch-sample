@@ -1,0 +1,58 @@
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Deleting the index. Response : {'acknowledged': True}
+Creating the index. Response : {'acknowledged': True, 'shards_acknowledged': True, 'index': 'test_vector'}
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Deleting the index. Response : {'acknowledged': True}
+Creating the index. Response : {'acknowledged': True, 'shards_acknowledged': True, 'index': 'test_vector'}
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Deleting the index. Response : {'acknowledged': True}
+Creating the index. Response : {'acknowledged': True, 'shards_acknowledged': True, 'index': 'test_vector'}
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Deleting the index. Response : {'acknowledged': True}
+Creating the index. Response : {'acknowledged': True, 'shards_acknowledged': True, 'index': 'test_vector'}
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Deleting the index. Response : {'acknowledged': True}
+Creating the index. Response : {'acknowledged': True, 'shards_acknowledged': True, 'index': 'test_vector'}
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Deleting the index. Response : {'acknowledged': True}
+Creating the index. Response : {'acknowledged': True, 'shards_acknowledged': True, 'index': 'test_vector'}
+Ingest dataset size is : 1000000
+Queries dataset size is : 10000
+dataset dimensions is : 128
+vector index name from env is : test_vector
+Deleting the index. Response : {'acknowledged': True}
+Creating the index. Response : {'acknowledged': True, 'shards_acknowledged': True, 'index': 'test_vector'}
